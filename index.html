@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+   
 
     <style>
 
@@ -100,15 +101,20 @@
         </div>
         <div class="middle">
             <p class="middleText">GUESS THE RIGHT COLOR</p>
+            <h4 class="score">Your Score: </h4>
+            
         </div>
         <div class="footer">
-                <button class="color1 color" ></button>
+            
+            <button class="color1 color" ></button>
                 <button class="color2 color"></button>
                 <button class="color3 color"></button>
                 <button class="color4 color"></button>
                 <button class="color5 color"></button>   
                 <button class="color6 color"></button>   
         </div>
+        <p>Correct: 10 Points</p>
+            <p>Incorrect: 0 Point</p>
     </div>
 
     <script>
@@ -172,28 +178,42 @@ else{
 
 let length= document.querySelectorAll(".color").length;
 
+
 for(let i=0;i<length;i++){
     document.querySelectorAll(".color")[i].addEventListener("click", function () { 
-        
+       
         if(heading===(i+1)){
+
+            let num=Number(localStorage.getItem("score"));
+            num=num+10;
+            localStorage.setItem("score",num);
+            let num2=localStorage.getItem("score");
+            document.querySelector(".score").innerHTML=`Your Score:  ${num2}` ;
             document.querySelector(".winnerOrLoser").textContent="You Win!!!!"
             var audio = new Audio("./win.wav");
                 audio.play();
+                
+                
+                
             setTimeout(function(){
                 location.reload();
-            },600);
+               
+            },1000);
         }
         else{
+
+            
+           
             document.querySelector(".winnerOrLoser").textContent="Try Again";
             var audio = new Audio("./failed.wav");
             audio.play();
             setTimeout(function(){
                 location.reload();
-            },600);
+            },1000);
         }   
         });
 }
-
+    location.assign();
     </script>
 </body>
 </html>
