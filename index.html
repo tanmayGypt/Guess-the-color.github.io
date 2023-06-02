@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        
+            html{
+                background-color: #E4E9FD;
+                background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+                min-height: 1000px;
+                font-family: 'helvetica neue';
+                
+              }
+        
+        .container{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1vh;
+            
+        }
+        
+        .container .header{
+            background-color: #969cff;
+            width: 25rem;
+            color: white;
+            font-family: sans-serif;
+        
+        }
+        .middle{
+            background-color: white;
+            color: #969cff;
+            width: 25rem;
+            font-weight: bolder;
+        }
+        
+        .footer{
+            display: flex;
+            background-color: black;
+            width: 25rem;
+            flex-wrap: wrap;
+        }
+        
+        
+        
+        .color{
+            width: 7rem;
+            height: 7rem;
+            border-radius: 10px;
+            margin: 5px;
+            /* align-self: center; */
+            position: relative;
+            left: 21px;
+            
+        }
+
+    
+        .color1{
+            background-color: red;
+        }
+        .color2{
+            background-color: blueviolet;
+        }
+        .color3{
+            background-color: green;
+        }
+        .color4{
+            background-color: yellow;
+        }
+        .color5{
+            background-color: pink;
+        }
+        .color6{
+            background-color: peru;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="winnerOrLoser">Play The Game</h1>
+        <div class="header">
+            <h5 class="heading">THIS IS THE GREAT</h3>
+            <h3 class="RGB">RGB Color(a,b,c)</h2>
+            <h5>COLOR GAME</h3>
+
+        </div>
+        <div class="middle">
+            <p class="middleText">GUESS THE RIGHT COLOR</p>
+        </div>
+        <div class="footer">
+                <button class="color1 color" ></button>
+                <button class="color2 color"></button>
+                <button class="color3 color"></button>
+                <button class="color4 color"></button>
+                <button class="color5 color"></button>   
+                <button class="color6 color"></button>   
+        </div>
+    </div>
+
+    <script>
+        let x1=Math.floor((Math.random() * 255) + 1);
+let y1=Math.floor((Math.random() * 255) + 1);
+let z1=Math.floor((Math.random() * 255) + 1);
+
+
+
+
+
+let x2=Math.floor((Math.random() * 255) + 1);
+let y2=Math.floor((Math.random() * 255) + 1);
+let z2=Math.floor((Math.random() * 255) + 1);
+
+let x3=Math.floor((Math.random() * 255) + 1);
+let y3=Math.floor((Math.random() * 255) + 1);
+let z3=Math.floor((Math.random() * 255) + 1);
+
+
+let x4=Math.floor((Math.random() * 255) + 1);
+let y4=Math.floor((Math.random() * 255) + 1);
+let z4=Math.floor((Math.random() * 255) + 1);
+
+let x5=Math.floor((Math.random() * 255) + 1);
+let y5=Math.floor((Math.random() * 255) + 1);
+let z5=Math.floor((Math.random() * 255) + 1);
+
+let x6=Math.floor((Math.random() * 255) + 1);
+let y6=Math.floor((Math.random() * 255) + 1);
+let z6=Math.floor((Math.random() * 255) + 1);
+
+document.querySelector(".color1").style.backgroundColor =  'rgb(' + x1 + ',' + y1 + ',' + z1 + ')';
+document.querySelector(".color2").style.backgroundColor = 'rgb(' + x2 + ',' + y2 + ',' + z2 + ')';
+document.querySelector(".color3").style.backgroundColor = 'rgb(' + x3 + ',' + y3 + ',' + z3 + ')';
+document.querySelector(".color4").style.backgroundColor = 'rgb(' + x4 + ',' + y4 + ',' + z4 + ')';
+document.querySelector(".color5").style.backgroundColor = 'rgb(' + x5 + ',' + y5 + ',' + z5 + ')';
+document.querySelector(".color6").style.backgroundColor = 'rgb(' + x6 + ',' + y6 + ',' + z6 + ')';
+
+let heading=Math.floor((Math.random() * 6) + 1);
+
+if(heading===1){
+    document.querySelector(".RGB").innerHTML= `RGB Color (${x1}, ${y1},${z1}) `;
+}
+else if(heading===2){
+    document.querySelector(".RGB").innerHTML= `RGB Color (${x2}, ${y2},${z2}) `;
+}
+
+else if(heading===3){
+    document.querySelector(".RGB").innerHTML= `RGB Color (${x3}, ${y3},${z3})`;
+}
+else if(heading===4){
+    document.querySelector(".RGB").innerHTML= `RGB Color (${x4}, ${y4},${z4}) `;
+}
+else if(heading===5){
+    document.querySelector(".RGB").innerHTML= `RGB Color (${x5}, ${y5},${z5}) `;
+}
+else{
+    document.querySelector(".RGB").innerHTML= `RGB Color (${x6}, ${y6},${z6}) `;
+}
+
+let length= document.querySelectorAll(".color").length;
+
+for(let i=0;i<length;i++){
+    document.querySelectorAll(".color")[i].addEventListener("click", function () { 
+        
+        if(heading===(i+1)){
+            document.querySelector(".winnerOrLoser").textContent="You Win!!!!"
+            setTimeout(function(){
+                location.reload();
+            },1000);
+        }
+        else{
+            document.querySelector(".winnerOrLoser").textContent="Try Again";
+           
+            setTimeout(function(){
+                location.reload();
+            },1000);
+        }   
+        });
+}
+
+    </script>
+</body>
+</html>
