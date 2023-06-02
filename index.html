@@ -43,9 +43,9 @@
         
         .footer{
             display: flex;
-            background-color: aliceblue;
             width: 25rem;
             flex-wrap: wrap;
+            background-color: aliceblue;
         }
         
         
@@ -79,6 +79,11 @@
         }
         .color6{
             background-color: peru;
+        }
+
+        .footer button:active{
+            box-shadow: 0 3px 4px 0 #DBEDF3;
+            opacity: 0.5;
         }
         
 
@@ -172,16 +177,19 @@ for(let i=0;i<length;i++){
         
         if(heading===(i+1)){
             document.querySelector(".winnerOrLoser").textContent="You Win!!!!"
+            var audio = new Audio("./win.wav");
+                audio.play();
             setTimeout(function(){
                 location.reload();
-            },1000);
+            },600);
         }
         else{
             document.querySelector(".winnerOrLoser").textContent="Try Again";
-           
+            var audio = new Audio("./failed.wav");
+            audio.play();
             setTimeout(function(){
                 location.reload();
-            },1000);
+            },600);
         }   
         });
 }
